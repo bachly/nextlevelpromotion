@@ -192,7 +192,7 @@ const Button = ({
       className={cn(
         "flex items-center justify-center w-full h-10 rounded-2xl p-6 font-medium text-lg",
         variant === "primary"
-          ? "bg-gradient-to-b border border-emerald-700 from-emerald-500 to-brand text-white"
+          ? "bg-gradient-to-b border border-brand-700 from-brand-400 to-brand text-white"
           : "bg-white",
         className
       )}

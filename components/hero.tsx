@@ -11,10 +11,14 @@ import Link from "next/link";
 import { transition, variants } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 
-const text = "Record interviews. Centralise feedback automatically.";
+// Hero section text content
+const title = "From first glance to final handshake, your print is your brand's voice.";
+const subtitle = "At Next Level Promotion, we believe every flyer, card, and banner should speak volumes about who you are. That's why we combine quality craftsmanship, design expertise, and fast service to help you leave a lasting mark.";
+const eyebrow = "Every Great Brand Starts With a Great Promo";
+const cta = "Win Attention Today";
 
 export const Hero = () => {
-  const words = text.split(" ");
+  const words = title.split(" ");
   return (
     <motion.div className="md:h-[912px] h-[710px] p-4 relative rounded-[35px] border border-[#E6E6E6] mt-5 overflow-hidden">
       <div
@@ -75,17 +79,16 @@ export const Hero = () => {
           variants={variants}
           className="md:text-lg text-sm font-medium leading-[23px] text-center tracking-tight max-w-2xl mx-auto w-[95%] mt-9 text-neutral-600"
         >
-          Record and organize user interviews automatically. Focus on what
-          matters - connecting with users.
+          {subtitle}
         </motion.p>
         <Link href="/sign-up">
           <motion.button
             transition={transition}
             variants={variants}
             style={{ boxShadow: "0px 4px 14.8px rgba(0, 0, 0, 0.2)" }}
-            className="flex items-center justify-center w-56 h-12 mt-9 rounded-xl border border-emerald-700 bg-gradient-to-b from-emerald-500 to-brand text-base font-semibold text-white"
+            className="flex items-center justify-center w-72 h-12 mt-9 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-400 to-brand text-base font-semibold text-white"
           >
-            Get started - it&apos;s free
+            {cta}
             <ArrowRight className="h-4 w-4 ml-2" />
           </motion.button>
         </Link>
@@ -98,7 +101,7 @@ const Banner = () => {
   return (
     <Link href="/blog/Artificial-Intelligence">
       <motion.div
-        className="md:w-[459px] w-72 md:h-10 h-9 rounded-xl bg-emerald-500/50 flex items-center justify-center md:gap-3 gap-1"
+        className="md:w-[459px] w-72 md:h-10 h-9 rounded-xl bg-brand/50 flex items-center justify-center md:gap-3 gap-1"
         transition={transition}
         variants={variants}
       >
@@ -110,7 +113,7 @@ const Banner = () => {
           className="size-5 md:size-6"
         />
         <p className="md:text-base text-[10px] font-semibold">
-          New! Record user interviews without recording bots
+          {eyebrow}
         </p>
       </motion.div>
     </Link>

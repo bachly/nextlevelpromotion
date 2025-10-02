@@ -14,7 +14,19 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        brand: "#25a18e",
+        brand: {
+          DEFAULT: "#0d72ff",
+          50: "#e6f0ff",
+          100: "#b3d1ff",
+          200: "#80b2ff",
+          300: "#4d93ff",
+          400: "#2674ff",
+          500: "#0d72ff",
+          600: "#0a5acc",
+          700: "#084299",
+          800: "#052a66",
+          900: "#031233"
+        },
       },
       keyframes: {
         "accordion-down": {

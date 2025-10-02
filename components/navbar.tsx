@@ -10,9 +10,11 @@ import { ArrowRight } from "lucide-react";
 
 const navbarItems = [
   { name: "Home", path: "/" },
-  { name: "Pricing", path: "/pricing" },
+  { name: "Our Services", path: "/services" },
   { name: "Blog", path: "/blog" },
 ];
+
+const brandName = "NextLevelPromotion";
 
 const Navbar = (): React.ReactNode => {
   const pathname = usePathname();
@@ -27,7 +29,7 @@ const Navbar = (): React.ReactNode => {
     <motion.div className="relative w-full flex justify-between items-center">
       <Link href="/" className="flex gap-3 mb-4 md:mb-0 w-1/3 cursor-pointer">
         <Logo />
-        <label className="text-3xl font-semibold tracking-tight">Playful</label>
+        <label className="text-3xl font-semibold tracking-tight">{brandName}</label>
       </Link>
       <div className="md:flex hidden justify-between w-2/3 ">
         <div className="flex justify-center w-1/2 gap-2 md:gap-9 text-lg mb-4 md:mb-0">
@@ -171,7 +173,7 @@ const GetStartedButton = () => {
     <Link
       href="/sign-up"
       style={{ boxShadow: "0px 4px 14.8px rgba(0, 0, 0, 0.2)" }}
-      className="flex items-center justify-center w-full md:w-36 h-10 rounded-xl border border-emerald-700 bg-gradient-to-b from-emerald-500 to-brand text-base font-semibold text-white"
+      className="flex items-center justify-center w-full md:w-36 h-10 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-400 to-brand text-base font-semibold text-white"
     >
       Get started
       <ArrowRight className="h-4 w-4 ml-2" />
