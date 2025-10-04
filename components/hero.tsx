@@ -2,65 +2,38 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import Image from "next/image";
-import IconBoxHero from "./cards/iconBoxHero";
-import Analytics from "./cards/Analytics";
-import SocialMediaCard from "./cards/SocialMediaCard";
-import PaperPinCard from "./cards/paperPin";
 import Link from "next/link";
 import { transition, variants } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 // Hero section text content
+const eyebrow = "- Every Great Brand Starts With a Great Promo -";
 const title = "From first glance to final handshake, your print is your brand's voice.";
-const subtitle = "At Next Level Promotion, we believe every flyer, card, and banner should speak volumes about who you are. That's why we combine quality craftsmanship, design expertise, and fast service to help you leave a lasting mark.";
-const eyebrow = "Every Great Brand Starts With a Great Promo";
-const cta = "Win Attention Today";
+const subtitle = <>
+  At Next Level Promotion, we believe <strong>every signage, uniform, or advertising handouts</strong> should speak volumes about <strong>who you are</strong>.
+  That's why we combine quality <strong>Fast and Personalised</strong> service with <strong>Selected Materials</strong> to help you leave a lasting mark.</>;
+const cta = <>Win Attention Today</>;
 
 export const Hero = () => {
   const words = title.split(" ");
   return (
-    <motion.div className="md:h-[912px] h-[710px] p-4 relative rounded-[35px] border border-[#E6E6E6] mt-5 overflow-hidden">
-      <div
-        className="absolute -z-20 top-0 left-0 w-full h-full"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #e6e6e6 1px, transparent 1px)",
-          backgroundSize: "10px 10px",
-        }}
-      />
-
-      <div className="absolute -z-10 md:top-24 md:left-36 top-4 left-4 rotate-[-15.11deg]">
-        <IconBoxHero />
-      </div>
-
-      <div className="absolute -z-10 md:bottom-80 md:right-96 bottom-64 right-11 rotate-[14deg]">
-        <IconBoxHero />
-      </div>
-
-      <div className="absolute -z-10 md:bottom-52 bottom-36 md:-left-5 -left-14 rotate-[12deg] hidden md:block">
-        <motion.div className="rotate-[5deg] scale-[0.9]">
-          <Analytics color="#e2e8f0" />
-        </motion.div>
-      </div>
-
-      <div className="absolute -z-10 md:-bottom-40 -bottom-36 md:-left-20 -left-32 rotate-[20deg]">
-        <motion.div className="rotate-[5deg] scale-[0.9]">
-          <SocialMediaCard className="md:[&>*]:scale-100 [&>*]:scale-[0.6]" />
-        </motion.div>
-      </div>
-
-      <div className="absolute -z-10 md:-bottom-16 md:right-72 -bottom-20 right-16 rotate-[-19deg]">
-        <Analytics color="#DFEBF3" />
-      </div>
-
-      <div className="absolute -z-10 md:-bottom-36 md:-right-10 -bottom-36 -right-48 rotate-[-12deg]">
-        <PaperPinCard className="md:[&>*]:scale-100 [&>*]:scale-75" />
-      </div>
+    <motion.div className="md:h-[912px] py-24 p-4 relative border border-[#E6E6E6] mt-4 overflow-hidden">
 
       <motion.div className="w-full h-5/6 flex flex-col items-center justify-center">
-        <Banner />
-        <h1 className="md:text-6xl text-2xl font-bold text-center md:w-4/6 w-full mt-8">
+
+        {/* Eyebrow */}
+        <motion.div
+          className="text-center"
+          transition={transition}
+          variants={variants}
+        >
+          <p className="md:text-2xl text-xl font-semibold text-brand-500">
+            {eyebrow}
+          </p>
+        </motion.div>
+
+        {/* Title */}
+        <h1 className="md:text-5xl text-4xl font-black uppercase text-center md:w-5/6 w-full mt-4">
           {words.map((word, index) => (
             <React.Fragment key={index}>
               <motion.span
@@ -74,48 +47,29 @@ export const Hero = () => {
             </React.Fragment>
           ))}
         </h1>
+
+        {/* Subtitle */}
         <motion.p
           transition={transition}
           variants={variants}
-          className="md:text-lg text-sm font-medium leading-[23px] text-center tracking-tight max-w-2xl mx-auto w-[95%] mt-9 text-neutral-600"
+          className="md:text-2xl text-xl leading-[28px] text-center tracking-tight w-5/6 max-w-xl mx-auto mt-4 text-neutral-900 font-semibold"
         >
           {subtitle}
         </motion.p>
+
+        {/* Call to Action */}
         <Link href="/sign-up">
           <motion.button
             transition={transition}
             variants={variants}
-            style={{ boxShadow: "0px 4px 14.8px rgba(0, 0, 0, 0.2)" }}
-            className="flex items-center justify-center w-72 h-12 mt-9 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-400 to-brand text-base font-semibold text-white"
+            className="flex items-center justify-center w-72 h-12 mt-9 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-500 to-brand-600 text-lg font-bold text-white"
           >
             {cta}
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <ArrowDown className="h-4 w-4 ml-2" />
           </motion.button>
         </Link>
+
       </motion.div>
     </motion.div>
-  );
-};
-
-const Banner = () => {
-  return (
-    <Link href="/blog/Artificial-Intelligence">
-      <motion.div
-        className="md:w-[459px] w-72 md:h-10 h-9 rounded-xl bg-brand/50 flex items-center justify-center md:gap-3 gap-1"
-        transition={transition}
-        variants={variants}
-      >
-        <Image
-          height={20}
-          width={20}
-          src="/assets/banner_Icon.svg"
-          alt="hero_text"
-          className="size-5 md:size-6"
-        />
-        <p className="md:text-base text-[10px] font-semibold">
-          {eyebrow}
-        </p>
-      </motion.div>
-    </Link>
   );
 };
