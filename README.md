@@ -38,26 +38,22 @@ A modern and playful template designed for SaaS and marketing websites, powered 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/playful-template-aceternity.git
-cd playful-template-aceternity
+git clone git@github.com:bachly/nextlevelpromotion.git
+cd nextlevelpromotion
 ```
 
 2. Install dependencies:
 
 ```bash
-pnpm install
+npm install
 ```
 
 3. Start the development server:
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
-## Support
+## Changelog
 
-For support, please email support@aceternity.com or join our [Discord community](https://discord.gg/aceternity).
-
-Bug Fixes:
-
-- [x] Remove blur animations except for the hero section
+- [x] Fresh installation
