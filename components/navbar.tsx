@@ -6,7 +6,8 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { Container } from "./container";
 
 const navbarItems = [
   { name: "Home", path: "/" },
@@ -26,31 +27,32 @@ const Navbar = (): React.ReactNode => {
   };
 
   return (
-    <motion.div className="relative w-full flex justify-between items-center">
-      <Link href="/" className="flex gap-3 mb-4 md:mb-0 w-1/3 cursor-pointer">
-        <Logo />
-        <label className="text-3xl font-semibold tracking-tight">{brandName}</label>
-      </Link>
-      <div className="md:flex hidden justify-between w-2/3 ">
-        <div className="flex justify-center w-1/2 gap-2 md:gap-9 text-lg mb-4 md:mb-0">
-          {navbarItems.map((item) => (
-            <Link
-              href={item.path}
-              className={cn(
-                "text-base font-medium hover:text-brand",
-                pathname === item.path ? "text-brand" : ""
-              )}
-              key={item.name}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-        <div className="w-1/2 flex justify-end">
-          <GetStartedButton />
-        </div>
-      </div>
-      <div className="md:hidden -mt-4">
+    <div className="relative w-full bg-white py-4">
+      <Container className="md:px-11 px-2">
+        <motion.div className="flex justify-between items-center">
+          <Link href="/" className="flex gap-3 w-1/3 cursor-pointer">
+            <label className="text-3xl font-semibold tracking-tight text-brand-500">{brandName}</label>
+          </Link>
+          <div className="md:flex hidden justify-between w-2/3 ">
+            <div className="flex items-center justify-center w-1/2 gap-2 md:gap-9 text-lg mb-4 md:mb-0">
+              {navbarItems.map((item) => (
+                <Link
+                  href={item.path}
+                  className={cn(
+                    "text-xl font-bold text-neutral-700 hover:text-brand-500",
+                    pathname === item.path ? "text-brand-500" : ""
+                  )}
+                  key={item.name}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            <div className="w-1/2 flex justify-end">
+              <GetStartedButton />
+            </div>
+          </div>
+          <div className="md:hidden -mt-4">
         <motion.button
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
@@ -61,7 +63,7 @@ const Navbar = (): React.ReactNode => {
               initial={{ rotate: 0 }}
               animate={{ rotate: 180 }}
               transition={{ duration: 0.2 }}
-              className="w-8 h-8"
+              className="w-8 h-8 text-brand-700"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -77,7 +79,7 @@ const Navbar = (): React.ReactNode => {
               initial={{ rotate: 0 }}
               animate={{ rotate: 0 }}
               transition={{ duration: 0.2 }}
-              className="w-8 h-8"
+              className="w-8 h-8 text-brand-700"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -161,8 +163,10 @@ const Navbar = (): React.ReactNode => {
             </div>
           </motion.div>
         )}
-      </div>
-    </motion.div>
+          </div>
+        </motion.div>
+      </Container>
+    </div>
   );
 };
 
@@ -172,11 +176,10 @@ const GetStartedButton = () => {
   return (
     <Link
       href="/sign-up"
-      style={{ boxShadow: "0px 4px 14.8px rgba(0, 0, 0, 0.2)" }}
-      className="flex items-center justify-center w-full md:w-36 h-10 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-400 to-brand text-base font-semibold text-white"
+      className="flex items-center justify-center w-full md:w-36 py-2 rounded-full bg-brand-500 text-base font-semibold text-white"
     >
       Get started
-      <ArrowRight className="h-4 w-4 ml-2" />
+      <ArrowDown className="h-4 w-4 ml-2" />
     </Link>
   );
 };

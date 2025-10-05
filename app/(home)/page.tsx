@@ -7,52 +7,29 @@ import Grids from "@/components/grids";
 import Header from "@/components/header";
 import { Hero } from "@/components/hero";
 import GetQuotes from "@/components/get-quotes";
+import { Container } from "@/components/container";
 
 export default function Home() {
   return (
     <div>
-      
       <Hero />
 
       <Features />
       <FeaturesCards />
 
-      <ProductPreview />
+      <div className="py-12"></div>
+
       <Header
         badge="Products"
         title="Features that will make your life easier"
         subtitle="Streamline your hiring process with powerful tools for sourcing,
-        evaluating, and onboarding top talent - all in one platform."
+          evaluating, and onboarding top talent - all in one platform."
       />
+
       <Grids />
 
-      {/* <Header
-        badge="Availability"
-        title="We are available everywhere"
-        subtitle="Our platform is available in all countries, will support from over 20,000+ representatives"
-        className="mt-40 md:mt-40"
-      />
-      <MapSection /> */}
-
-      {/* <Header
-        badge="pricing"
-        title="Pricing so simple, you'd buy instantly"
-        subtitle="Pick from our plans and get started in minutes, simple for everyone."
-        className="mt-3"
-      />
-      <Pricing /> */}
-
-      {/* <Header
-        badge="testimonials"
-        title="Recruiters love us"
-        subtitle="People have chosen us from all over the world to help them with their hiring process. Take a look at some of their feedbacks."
-        className="my-10"
-      />
-      <Feedbacks /> */}
-
       <FAQSection />
-      <GetQuotes />
-      <Contact />
+
     </div>
   );
 }

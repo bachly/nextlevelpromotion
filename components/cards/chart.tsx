@@ -6,7 +6,7 @@ import { graphData } from "@/lib/data";
 
 const ChartCard = (): JSX.Element => {
   return (
-    <div className="relative lg:h-[483px] h-full lg:w-3/5 w-full flex flex-col items-center rounded-2xl overflow-hidden p-5 pt-20 border border-[#DBDCDF]">
+    <div className="relative lg:h-[483px] h-full lg:w-1/2 w-full flex flex-col items-center rounded-2xl overflow-hidden p-5 pt-20 border border-[#DBDCDF]">
       <div>
         <div className="absolute -right-24 top-5 z-20 w-[350px] gap-4 bg-white rounded-2xl h-16 flex items-center px-5 border shadow-[0px_4px_8px_0px_#0000001a,0px_15px_15px_0px_#00000017,0px_34px_20px_0px_#0000000d,0px_60px_24px_0px_#00000003,0px_93px_26px_0px_#00000000]">
           <span>✅</span>

@@ -4,22 +4,31 @@ import React from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { transition, variants } from "@/lib/data";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import Badge from "./ui/badge";
 
 // Hero section text content
-const eyebrow = "- Every Great Brand Starts With a Great Promo -";
-const title = "From first glance to final handshake, your print is your brand's voice.";
+const eyebrow = "Every Great Brand Starts With a Great Promo";
+const title = <>Your Print is Your <span className="text-brand-500">Brand's</span> Voice</>;
 const subtitle = <>
-  At Next Level Promotion, we believe <strong>every signage, uniform, or advertising handouts</strong> should speak volumes about <strong>who you are</strong>.
-  That's why we combine quality <strong>Fast and Personalised</strong> service with <strong>Selected Materials</strong> to help you leave a lasting mark.</>;
+  Every signage, uniform, or advertising handouts should speak volumes about <strong>who you are</strong>
+</>;
 const cta = <>Win Attention Today</>;
 
 export const Hero = () => {
-  const words = title.split(" ");
-  return (
-    <motion.div className="md:h-[912px] py-24 p-4 relative border border-[#E6E6E6] mt-4 overflow-hidden">
+  const products = [
+    { src: "https://picsum.photos/seed/product1/400/500", size: "w-96 h-[480px]" },
+    { src: "https://picsum.photos/seed/product2/400/500", size: "w-96 h-[480px]" },
+    { src: "https://picsum.photos/seed/product3/400/500", size: "w-96 h-[480px]" },
+    { src: "https://picsum.photos/seed/product4/400/500", size: "w-96 h-[480px]" },
+    { src: "https://picsum.photos/seed/product5/400/500", size: "w-96 h-[480px]" },
+    { src: "https://picsum.photos/seed/product6/400/500", size: "w-96 h-[480px]" },
+  ];
 
-      <motion.div className="w-full h-5/6 flex flex-col items-center justify-center">
+  return (
+    <motion.div className="pt-24 pb-28 relative bg-white w-full">
+
+      <motion.div className="w-full h-full flex flex-col items-center justify-center relative z-10">
 
         {/* Eyebrow */}
         <motion.div
@@ -27,32 +36,21 @@ export const Hero = () => {
           transition={transition}
           variants={variants}
         >
-          <p className="md:text-2xl text-xl font-semibold text-brand-500">
+          <div className="text-2xl text-brand-500 px-3 py-1 rounded-full font-semibold">
             {eyebrow}
-          </p>
+          </div>
         </motion.div>
 
         {/* Title */}
-        <h1 className="md:text-5xl text-4xl font-black uppercase text-center md:w-5/6 w-full mt-4">
-          {words.map((word, index) => (
-            <React.Fragment key={index}>
-              <motion.span
-                className="inline-block"
-                transition={transition}
-                variants={variants}
-              >
-                {word}
-              </motion.span>
-              {index < words.length - 1 && " "}
-            </React.Fragment>
-          ))}
+        <h1 className="md:text-7xl text-6xl font-black uppercase text-center md:w-3/6 w-full mt-4 text-neutral-700">
+          {title}
         </h1>
 
         {/* Subtitle */}
         <motion.p
           transition={transition}
           variants={variants}
-          className="md:text-2xl text-xl leading-[28px] text-center tracking-tight w-5/6 max-w-xl mx-auto mt-4 text-neutral-900 font-semibold"
+          className="md:text-2xl text-xl leading-[28px] text-center tracking-tight w-5/6 max-w-xl mx-auto mt-4 text-neutral-700 font-semibold"
         >
           {subtitle}
         </motion.p>
@@ -62,12 +60,57 @@ export const Hero = () => {
           <motion.button
             transition={transition}
             variants={variants}
-            className="flex items-center justify-center w-72 h-12 mt-9 rounded-xl border border-brand-700 bg-gradient-to-b from-brand-500 to-brand-600 text-lg font-bold text-white"
+            className="flex items-center justify-center w-72 py-4 mt-9 rounded-full bg-brand-500 text-xl font-bold text-white hover:from-brand-600 hover:to-brand-700 transition-colors"
           >
             {cta}
             <ArrowDown className="h-4 w-4 ml-2" />
           </motion.button>
         </Link>
+
+        {/* Product Images Marquee */}
+        <div className="w-full mt-8 overflow-hidden relative">
+          {/* Top Curve - Facing Down */}
+          <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
+            <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="w-full h-24">
+              <path d="M0,0 Q600,100 1200,0 L1200,0 L0,0 Z" fill="white"/>
+            </svg>
+          </div>
+
+          <motion.div
+            className="flex gap-16 items-end"
+            animate={{
+              x: [0, -1200],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Duplicate the array to create seamless loop */}
+            {[...products, ...products].map((product, index) => {
+              const productNumber = (index % products.length) + 1;
+              return (
+                <div
+                  key={index}
+                  className={`flex-shrink-0 ${product.size} bg-white rounded-t-xl relative`}
+                >
+                  <img src={product.src} alt={`Product ${productNumber}`} className="w-full h-full object-cover" />
+                </div>
+              );
+            })}
+          </motion.div>
+
+          {/* Bottom Curve - Facing Up */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
+            <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="w-full h-24">
+              <path d="M0,100 Q600,0 1200,100 L1200,100 L0,100 Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
 
       </motion.div>
     </motion.div>
