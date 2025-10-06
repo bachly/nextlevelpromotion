@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { transition, variants } from "@/lib/data";
 import { ArrowDown } from "lucide-react";
 import Eyebrow from "./ui/eyebrow";
+import Image from "next/image";
 
 // Hero section text content
 const eyebrow = "Take your business to the next level with";
@@ -88,7 +89,7 @@ export const Hero = () => {
               ))}
             </div>
             <p className="max-w-md mx-auto text-2xl text-neutral-900 font-semibold italic">
-              "The quality and turnaround time exceeded our expectations!"
+              &ldquo;The quality and turnaround time exceeded our expectations!&rdquo;
             </p>
             <p className="text-base text-neutral-500 mt-2 font-semibold">— Bach L., Business Owner</p>
           </div>
@@ -122,9 +123,9 @@ export const Hero = () => {
               return (
                 <div
                   key={index}
-                  className={`flex-shrink-0 ${product.size} bg-white rounded-t-xl relative`}
+                  className={`flex-shrink-0 ${product.size} bg-white rounded-t-xl relative overflow-hidden`}
                 >
-                  <img src={product.src} alt={product.name} className="w-full h-full object-cover" />
+                  <Image src={product.src} alt={product.name} fill className="object-cover" />
                 </div>
               );
             })}

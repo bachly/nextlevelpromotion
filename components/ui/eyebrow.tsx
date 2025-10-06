@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { Playball } from "next/font/google";
+import { Alkatra } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const handwritingFont = Playball({ weight: "400", subsets: ["latin"] });
+const handwritingFont = Alkatra({ weight: "500", subsets: ["latin"] });
 
 interface EyebrowProps {
   children: React.ReactNode;
@@ -24,12 +24,14 @@ const Eyebrow: React.FC<EyebrowProps> = ({
   };
 
   return (
-    <div className={cn(
-      "text-brand-500",
-      sizeClasses[size],
-      handwritingFont.className,
-      className
-    )}>
+    <div
+      className={cn(
+        "text-brand-500",
+        sizeClasses[size],
+        handwritingFont.className,
+        className
+      )}
+    >
       {children}
     </div>
   );

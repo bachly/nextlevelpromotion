@@ -1,6 +1,6 @@
 import BookACall from "@/components/BookACall";
 import Checks from "@/components/cards/checks";
-import FeaturesCards from "@/components/cards/FeaturesCards";
+import FeatureGrid from "@/components/cards/FeatureGrid";
 import Features from "@/components/features";
 import Header from "@/components/header";
 import Pricing from "@/components/pricing";
@@ -22,7 +22,7 @@ const PricingPage = () => {
       </div>
 
       <div className="w-full">
-        <FeaturesCards />
+        <FeatureGrid />
       </div>
       <div className="mt-72">
         <Features />

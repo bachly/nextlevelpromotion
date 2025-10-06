@@ -1,12 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { Container } from "./container";
 
 const navbarItems = [
@@ -19,8 +17,6 @@ const navbarItems = [
 const brandName = "NextLevelPromotion";
 
 const Navbar = (): React.ReactNode => {
-  const pathname = usePathname();
-
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeHash, setActiveHash] = useState("");

@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { FAQData } from "@/lib/data";
-import Header from "./header";
 
 const FAQSection = () => {
   return (

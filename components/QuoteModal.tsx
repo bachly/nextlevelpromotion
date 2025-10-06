@@ -55,7 +55,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
+      body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
     })
       .then(() => {
         setIsSubmitted(true);
@@ -281,7 +281,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
                     {/* Honeypot for spam protection */}
                     <div className="hidden">
-                      Don't fill this out if you're human: <input name="bot-field" />
+                      Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
                     </div>
 
                     <button

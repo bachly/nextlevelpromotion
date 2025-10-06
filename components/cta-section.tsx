@@ -33,7 +33,7 @@ const CTASection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-neutral-900 mb-8 max-w-2xl mx-auto">
-            Ready to bring your brand to life? Contact us today and let's discuss how we can help:
+            Ready to bring your brand to life? Contact us today and let&apos;s discuss how we can help:
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-10 text-left max-w-lg mx-auto">
