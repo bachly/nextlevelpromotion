@@ -27,7 +27,7 @@ const FeatureGrid = (): JSX.Element => {
   ];
   return (
     <div className="flex justify-center">
-      <div className="w-full max-w-4xl mx-auto grid lg:grid-cols-3 lg:grid-rows-1 grid-cols-1 grid-rows-3 gap-16 align-center">
+      <div className="w-full max-w-4xl mx-auto grid md:grid-cols-3 lg:grid-rows-1 grid-cols-1 grid-rows-3 gap-16 align-center">
         {features.map((feature, idx) => (
           <motion.div
             key={feature.id}

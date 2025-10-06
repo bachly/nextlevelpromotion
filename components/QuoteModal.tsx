@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { getProductDescription } from "@/lib/productDescriptions";
+import { getProductDescription } from "@/lib/products";
 
 interface QuoteModalProps {
   isOpen: boolean;

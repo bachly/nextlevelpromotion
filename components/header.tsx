@@ -32,17 +32,17 @@ const Header = ({
     >
       <Eyebrow size={eyebrowSize}>{eyebrow}</Eyebrow>
       <div className="flex flex-col items-center gap-2 my-6">
-        <h1 className="md:text-3xl font-black lg:text-5xl text-2xl md:max-w-6xl text-center leading-snug">
+        <h1 className="font-black lg:text-5xl text-4xl max-w-md md:max-w-6xl text-center">
           {title}
         </h1>
         {titleSecondary && (
-          <h2 className="md:text-3xl font-black lg:text-5xl text-2xl md:max-w-6xl text-center leading-snug">
+          <h2 className="font-black lg:text-5xl text-4xl max-w-md md:max-w-6xl text-center">
             {titleSecondary}
           </h2>
         )}
       </div>
       <div className="py-1"></div>
-      <p className="text-center w-full md:max-w-2xl md:text-xl lg:text-2xl text-xl px-1 font-medium text-neutral-900">
+      <p className="text-center w-full max-w-md md:max-w-2xl md:text-xl lg:text-2xl text-xl px-1 font-medium text-neutral-900">
         {subtitle}
       </p>
     </motion.div>

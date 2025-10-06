@@ -50,34 +50,44 @@ export const FAQData: {
   description: string;
 }[] = [
   {
-    title: "What is the purpose of this website?",
+    title: "What printing services do you offer?",
     description:
-      "Welcome to our website, where we aim to provide you with the best products and services. Our purpose is to make your life easier, by offering you a wide range of products that you can use to improve your daily life. We strive to provide you with the best quality products, at the best prices, and with the best customer service. We believe that our website is the best place for you to find what you need, and we are committed to making sure that you have a great experience while shopping with us.",
+      "We offer a comprehensive range of custom printing solutions including banners, signage, A-frames, stickers, wall murals, promotional materials, event displays, and much more. From small format prints like business cards and flyers to large format displays like building wraps and media walls, we can handle projects of any size. Browse our product gallery to see the full range of solutions we offer.",
   },
   {
-    title: "How do i contact support?",
+    title: "How do I get a quote for my project?",
     description:
-      "If you have any questions or need any help, please don't hesitate to contact us. We have a dedicated team of customer support specialists who are ready to assist you with any questions or concerns you may have. You can reach us by phone, email, or through our website's contact form. We are available 24/7 to help you with any issue you may have.",
+      "Getting a quote is easy! Simply browse our products, click the quote button on any product you're interested in, and fill out the form with your details and requirements. Our team will review your request and get back to you with a detailed quote within 24 hours. For complex or large-scale projects, we're happy to schedule a consultation to discuss your needs in detail.",
   },
   {
-    title: "How do I find the best products?",
+    title: "What is the typical turnaround time for orders?",
     description:
-      "Finding the best products can be a challenge, but we are here to help. We have a team of experts who carefully curate our products to ensure that they are of the highest quality and meet our high standards. We also have a detailed product description, customer reviews, and product ratings to help you make an informed decision. If you still have any questions, feel free to contact us and we will be happy to help you.",
+      "Turnaround times vary depending on the product type, quantity, and complexity of your order. Standard orders typically take 5-10 business days from artwork approval to delivery. Rush services are available for urgent projects. We'll provide you with an accurate timeline when we quote your project and keep you updated throughout the production process.",
   },
   {
-    title: "Can I return a product?",
+    title: "Do you provide design services?",
     description:
-      "Yes, you can return a product. We want you to be completely satisfied with your purchase, and if for any reason you are not, you can return it to us within 30 days of delivery. Please see our return policy for more details.",
+      "Yes! Our experienced design team can help bring your vision to life. Whether you need a complete design from scratch or just some tweaks to your existing artwork, we're here to help. Design services are available at an additional cost and can be included in your quote. We work closely with you to ensure the final design perfectly represents your brand and meets your objectives.",
   },
   {
-    title: "Do you offer international shipping?",
+    title: "What file formats do you accept for artwork?",
     description:
-      "Yes, we offer international shipping. We understand that our customers are located all over the world, and we want to make sure that we can reach them. We have a network of shipping partners that allow us to ship to almost any country in the world. Please see our shipping policy for more details.",
+      "We accept a variety of file formats including PDF, AI, EPS, PSD, and high-resolution JPG or PNG files. For best results, we recommend providing vector files (AI or EPS) for designs with text and logos. If you're unsure about your files, send them through and our team will review them and provide feedback on quality and suitability for printing.",
   },
   {
-    title: "How can I track my order?",
+    title: "Can I see a proof or sample before full production?",
     description:
-      "Once your order has shipped, you will receive an email with tracking information. You can use this information to track your order and see when it will arrive. If you have any questions or concerns about your order, please don't hesitate to contact us.",
+      "Absolutely! We provide digital proofs for all orders before going to print. This ensures you're completely happy with colors, layout, and overall design. For large orders or new products, we can also arrange physical samples or test prints at an additional cost. Your approval is required before we proceed with full production.",
+  },
+  {
+    title: "What areas do you service and deliver to?",
+    description:
+      "We service clients across Australia and can arrange delivery nationwide. Installation services are available for large format signage, wall graphics, and window displays in major metropolitan areas. Delivery times and costs vary based on location and order size. International shipping can also be arranged for specific products upon request.",
+  },
+  {
+    title: "What payment methods do you accept?",
+    description:
+      "We accept multiple payment methods including credit cards, direct bank transfer, and PayPal. For established business clients, we also offer account terms with credit approval. A 50% deposit is typically required for large orders, with the balance due before dispatch. All payment details and terms will be clearly outlined in your quote.",
   },
 ];
 

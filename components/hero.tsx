@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { transition, variants } from "@/lib/data";
 import { ArrowDown } from "lucide-react";
 import Eyebrow from "./ui/eyebrow";
@@ -58,7 +57,7 @@ export const Hero = () => {
         </motion.p>
 
         {/* Call to Action */}
-        <Link href="#products">
+        <a href="#products">
           <motion.button
             transition={transition}
             variants={variants}
@@ -67,7 +66,7 @@ export const Hero = () => {
             {cta}
             <ArrowDown className="h-4 w-4 ml-2" />
           </motion.button>
-        </Link>
+        </a>
 
         {/* Testimonial */}
         <motion.div

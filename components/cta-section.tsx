@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Eyebrow from "./ui/eyebrow";
 import { QuoteModal } from "./QuoteModal";
+import { motion } from "motion/react";
 
 const CTASection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,8 +19,13 @@ const CTASection = () => {
 
   return (
     <>
-      <div id="contact" className="w-full py-16 md:py-24 bg-gradient-to-br from-brand-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <div id="contact" className="w-full py-16 md:py-24 bg-gradient-to-br from-brand-50 to-white scroll-mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="max-w-4xl mx-auto px-4 text-center"
+        >
           <Eyebrow>Let's work together</Eyebrow>
 
           <h2 className="md:text-5xl text-4xl font-black mt-2 mb-6 text-neutral-700">
@@ -58,7 +64,7 @@ const CTASection = () => {
           >
             Contact Us
           </button>
-        </div>
+        </motion.div>
       </div>
 
       <QuoteModal
