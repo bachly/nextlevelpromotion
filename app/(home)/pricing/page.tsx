@@ -11,8 +11,8 @@ const PricingPage = () => {
     <div className="w-full flex flex-col items-center">
       <div className="md:my-20">
         <Header
-          badge="pricing"
-          title="Pricing so simple, you'd buy instantly"
+          eyebrow="pricing"
+          title="Pricing so simple, you&apos;d buy instantly"
           subtitle="Pick from our plans and get started in minutes, simple for everyone."
           className="md:my-10"
         />

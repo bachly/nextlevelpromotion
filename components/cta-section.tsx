@@ -26,7 +26,7 @@ const CTASection = () => {
           transition={{ duration: 0.9, delay: 0.2 }}
           className="max-w-4xl mx-auto px-4 text-center"
         >
-          <Eyebrow>Let's work together</Eyebrow>
+          <Eyebrow>Let&apos;s work together</Eyebrow>
 
           <h2 className="md:text-5xl text-4xl font-black mt-2 mb-6 text-neutral-700">
             Get In Touch With Us

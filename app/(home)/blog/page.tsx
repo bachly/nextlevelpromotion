@@ -10,7 +10,7 @@ const BlogPage = () => {
     <div className="w-full flex flex-col items-center mt-10 mb-36">
       <div className="md:w-[80%] w-full flex flex-col">
         <Header
-          badge="blogs"
+          eyebrow="blogs"
           title="Knowledge bank to hire better"
           subtitle="Read from our endless resources on how to hire the perfect candidate for your ideal job."
           className="mt-3"
