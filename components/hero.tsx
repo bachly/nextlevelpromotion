@@ -5,24 +5,26 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { transition, variants } from "@/lib/data";
 import { ArrowDown } from "lucide-react";
-import Badge from "./ui/badge";
+import Eyebrow from "./ui/eyebrow";
 
 // Hero section text content
-const eyebrow = "Every Great Brand Starts With a Great Promo";
-const title = <>Your Print is Your <span className="text-brand-500">Brand's</span> Voice</>;
+const eyebrow = "Take your business to the next level with";
+const title = <>Personalised <div className="text-brand-500">Printing</div> Solutions</>;
 const subtitle = <>
-  Every signage, uniform, or advertising handouts should speak volumes about <strong>who you are</strong>
+  Let your Signage, Uniforms, or Promotional Flyers Speak Volumes About <strong>Who You Are</strong>
 </>;
 const cta = <>Win Attention Today</>;
 
 export const Hero = () => {
   const products = [
-    { src: "https://picsum.photos/seed/product1/400/500", size: "w-96 h-[480px]" },
-    { src: "https://picsum.photos/seed/product2/400/500", size: "w-96 h-[480px]" },
-    { src: "https://picsum.photos/seed/product3/400/500", size: "w-96 h-[480px]" },
-    { src: "https://picsum.photos/seed/product4/400/500", size: "w-96 h-[480px]" },
-    { src: "https://picsum.photos/seed/product5/400/500", size: "w-96 h-[480px]" },
-    { src: "https://picsum.photos/seed/product6/400/500", size: "w-96 h-[480px]" },
+    { src: "/products/Premium Pull-Up Banner.jpg", name: "Premium Pull-Up Banner", size: "w-96 h-[480px]" },
+    { src: "/products/Vinyl Banner.jpg", name: "Vinyl Banner", size: "w-96 h-[480px]" },
+    { src: "/products/Teardrop Banner.jpg", name: "Teardrop Banner", size: "w-96 h-[480px]" },
+    { src: "/products/Selfie Frame.jpg", name: "Selfie Frame", size: "w-96 h-[480px]" },
+    { src: "/products/Media Wall.jpg", name: "Media Wall", size: "w-96 h-[480px]" },
+    { src: "/products/Market Umbrella.jpg", name: "Market Umbrella", size: "w-96 h-[480px]" },
+    { src: "/products/Table Throws.jpg", name: "Table Throws", size: "w-96 h-[480px]" },
+    { src: "/products/Luxury Pull-Up Banner.jpg", name: "Luxury Pull-Up Banner", size: "w-96 h-[480px]" },
   ];
 
   return (
@@ -36,13 +38,13 @@ export const Hero = () => {
           transition={transition}
           variants={variants}
         >
-          <div className="text-2xl text-brand-500 px-3 py-1 rounded-full font-semibold">
+          <Eyebrow size="md">
             {eyebrow}
-          </div>
+          </Eyebrow>
         </motion.div>
 
         {/* Title */}
-        <h1 className="md:text-7xl text-6xl font-black uppercase text-center md:w-3/6 w-full mt-4 text-neutral-700">
+        <h1 className="md:text-7xl text-6xl font-black uppercase text-center w-full mt-2 text-neutral-700">
           {title}
         </h1>
 
@@ -50,13 +52,13 @@ export const Hero = () => {
         <motion.p
           transition={transition}
           variants={variants}
-          className="md:text-2xl text-xl leading-[28px] text-center tracking-tight w-5/6 max-w-xl mx-auto mt-4 text-neutral-700 font-semibold"
+          className="md:text-3xl text-2xl leading-[28px] text-center tracking-tight max-w-2xl mx-auto mt-4 text-neutral-700 font-semibold"
         >
           {subtitle}
         </motion.p>
 
         {/* Call to Action */}
-        <Link href="/sign-up">
+        <Link href="#products">
           <motion.button
             transition={transition}
             variants={variants}
@@ -67,8 +69,34 @@ export const Hero = () => {
           </motion.button>
         </Link>
 
+        {/* Testimonial */}
+        <motion.div
+          transition={transition}
+          variants={variants}
+          className="mt-2 flex items-center justify-center gap-6 bg-white/80 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto"
+        >
+          <div className="flex-1 text-center">
+            <div className="flex gap-1 mb-2 justify-center">
+              {[...Array(5)].map((_, i) => (
+                <svg
+                  key={i}
+                  className="w-7 h-7 fill-yellow-400"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+              ))}
+            </div>
+            <p className="max-w-md mx-auto text-2xl text-neutral-900 font-semibold italic">
+              "The quality and turnaround time exceeded our expectations!"
+            </p>
+            <p className="text-base text-neutral-500 mt-2 font-semibold">— Bach L., Business Owner</p>
+          </div>
+        </motion.div>
+
         {/* Product Images Marquee */}
-        <div className="w-full mt-8 overflow-hidden relative">
+        <div className="w-full overflow-hidden relative">
           {/* Top Curve - Facing Down */}
           <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
             <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="w-full h-24">
@@ -92,13 +120,12 @@ export const Hero = () => {
           >
             {/* Duplicate the array to create seamless loop */}
             {[...products, ...products].map((product, index) => {
-              const productNumber = (index % products.length) + 1;
               return (
                 <div
                   key={index}
                   className={`flex-shrink-0 ${product.size} bg-white rounded-t-xl relative`}
                 >
-                  <img src={product.src} alt={`Product ${productNumber}`} className="w-full h-full object-cover" />
+                  <img src={product.src} alt={product.name} className="w-full h-full object-cover" />
                 </div>
               );
             })}

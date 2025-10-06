@@ -18,7 +18,7 @@ const Features = ({ className }: { className?: string }) => {
     >
       <Badge>Printing That Helps Small Businesses Shine</Badge>
       <div className="py-1"></div>
-      <h1 className="md:text-3xl font-black my-12 lg:text-5xl text-2xl md:max-w-[670px] text-center leading-loose">
+      <h1 className="md:text-3xl font-black my-6 lg:text-5xl text-2xl md:max-w-[670px] text-center leading-loose">
         We're Here to Make Your Brand Look Its Best
       </h1>
       <div className="py-1"></div>

@@ -11,8 +11,9 @@ import { Container } from "./container";
 
 const navbarItems = [
   { name: "Home", path: "/" },
-  { name: "Our Services", path: "/services" },
-  { name: "Blog", path: "/blog" },
+  { name: "About us", path: "#about" },
+  { name: "Our Products", path: "#products" },
+  { name: "Contact", path: "#contact" },
 ];
 
 const brandName = "NextLevelPromotion";
@@ -27,14 +28,14 @@ const Navbar = (): React.ReactNode => {
   };
 
   return (
-    <div className="relative w-full bg-white py-4">
-      <Container className="md:px-11 px-2">
+    <div className="relative w-full bg-white py-8">
+      <Container className="lg:px-11 px-2">
         <motion.div className="flex justify-between items-center">
           <Link href="/" className="flex gap-3 w-1/3 cursor-pointer">
             <label className="text-3xl font-semibold tracking-tight text-brand-500">{brandName}</label>
           </Link>
-          <div className="md:flex hidden justify-between w-2/3 ">
-            <div className="flex items-center justify-center w-1/2 gap-2 md:gap-9 text-lg mb-4 md:mb-0">
+          <div className="lg:flex hidden justify-between w-2/3 ">
+            <div className="flex items-center justify-center w-1/2 gap-2 lg:gap-9 text-lg mb-4 lg:mb-0">
               {navbarItems.map((item) => (
                 <Link
                   href={item.path}
@@ -52,7 +53,7 @@ const Navbar = (): React.ReactNode => {
               <GetStartedButton />
             </div>
           </div>
-          <div className="md:hidden -mt-4">
+          <div className="lg:hidden">
         <motion.button
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
@@ -103,13 +104,13 @@ const Navbar = (): React.ReactNode => {
               stiffness: 1000,
               damping: 30,
             }}
-            className="fixed bottom-0 left-0 pt-10 flex flex-col justify-start items-center w-full h-full bg-[#FAFAFA] z-50"
+            className="fixed inset-0 pt-10 flex flex-col justify-start items-center w-full h-full bg-[#FAFAFA] z-[100]"
           >
             <motion.button
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
               onClick={toggleMenu}
-              className="fixed top-4 right-4"
+              className="fixed top-4 right-4 z-10"
             >
               {isOpen ? (
                 <motion.svg
@@ -154,7 +155,7 @@ const Navbar = (): React.ReactNode => {
                   className={pathname === item.path ? "text-brand" : ""}
                   key={item.name}
                 >
-                  <li className="px-4 py-2 text-base font-bold">{item.name}</li>
+                  <li className="px-4 py-2 text-2xl font-bold">{item.name}</li>
                 </Link>
               ))}
             </ul>
@@ -175,8 +176,8 @@ export default Navbar;
 const GetStartedButton = () => {
   return (
     <Link
-      href="/sign-up"
-      className="flex items-center justify-center w-full md:w-36 py-2 rounded-full bg-brand-500 text-base font-semibold text-white"
+      href="#products"
+      className="flex items-center justify-center w-full lg:w-36 py-2 rounded-full bg-brand-500 text-base font-semibold text-white"
     >
       Get started
       <ArrowDown className="h-4 w-4 ml-2" />

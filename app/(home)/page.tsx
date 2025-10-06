@@ -1,34 +1,50 @@
-import Contact from "@/components/cards/contact";
-import FeaturesCards from "@/components/cards/FeaturesCards";
-import ProductPreview from "@/components/cards/ProductPreview";
+import FeatureGrid from "@/components/cards/FeatureGrid";
 import FAQSection from "@/components/faq";
-import Features from "@/components/features";
 import Grids from "@/components/grids";
 import Header from "@/components/header";
 import { Hero } from "@/components/hero";
-import GetQuotes from "@/components/get-quotes";
-import { Container } from "@/components/container";
+import CTASection from "@/components/cta-section";
 
 export default function Home() {
   return (
     <div>
       <Hero />
 
-      <Features />
-      <FeaturesCards />
+      <Header
+        eyebrow="Who are we?"
+        title="Premium, Personalised & Stress-Free"
+        titleSecondary="Promotional Solutions"
+        subtitle="Next Level Promotion is a boutique print studio based in Sydney, specialising in high-quality, custom-branded materials for small businesses, events, and growing brands. Since 2017, our passionate team has been helping Aussie companies make memorable first impressions with professionally printed products that stand out and tell their story."
+      />
+
+      <FeatureGrid />
+
+      <div className="py-12"></div>
+
+      <div id="products" className="px-2">
+        <Header
+          eyebrow="Explore our full range"
+          title="Premium Printing Products"
+          titleSecondary="Tailored for Your Business"
+          subtitle="From everyday essentials to standout custom pieces, we print everything you need to promote, showcase, and grow your brand."
+        />
+
+        <Grids />
+      </div>
 
       <div className="py-12"></div>
 
       <Header
-        badge="Products"
-        title="Features that will make your life easier"
-        subtitle="Streamline your hiring process with powerful tools for sourcing,
-          evaluating, and onboarding top talent - all in one platform."
+        eyebrow="FAQs"
+        title="Frequently Asked Questions"
+        subtitle="Find everything you need to know about our printing services. Not sure, ask us anything!"
       />
 
-      <Grids />
-
       <FAQSection />
+
+      <div className="py-12"></div>
+
+      <CTASection />
 
     </div>
   );
