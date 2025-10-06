@@ -52,6 +52,9 @@ const Navbar = (): React.ReactNode => {
       }
     };
 
+    // Call once on mount to set initial state
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
