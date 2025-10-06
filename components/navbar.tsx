@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Phone } from "lucide-react";
 import { Container } from "./container";
+import { siteConfig } from "@/lib/site-config";
 
 const navbarItems = [
   { name: "Home", path: "/" },
@@ -13,8 +15,6 @@ const navbarItems = [
   { name: "Our Products", path: "#products" },
   { name: "Contact", path: "#contact" },
 ];
-
-const brandName = "NextLevelPromotion";
 
 const Navbar = (): React.ReactNode => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,12 +71,20 @@ const Navbar = (): React.ReactNode => {
         isSticky ? "fixed top-0 left-0 right-0 z-50 shadow-md py-4" : "relative py-8"
       )}>
         <Container className="lg:px-11 px-2">
-        <motion.div className="flex justify-between items-center">
-          <Link href="/" className="flex gap-3 w-1/3 cursor-pointer">
-            <label className="text-3xl font-semibold tracking-tight text-brand-500">{brandName}</label>
+        <motion.div className="flex justify-between items-center gap-4">
+          <Link href="/" className="flex items-center flex-shrink-0" aria-label={`${siteConfig.name} - Home`}>
+            <Image
+              src="/logo.png"
+              alt={`${siteConfig.name} - Custom Printing & Promotional Solutions`}
+              width={1192}
+              height={222}
+              priority
+              className="object-contain w-40 h-auto md:w-48 lg:w-56"
+              title={siteConfig.name}
+            />
           </Link>
-          <div className="lg:flex hidden justify-between w-2/3 ">
-            <div className="flex items-center justify-center w-1/2 gap-2 lg:gap-9 text-lg mb-4 lg:mb-0">
+          <div className="lg:flex hidden flex-1 justify-between items-center">
+            <div className="flex items-center justify-center flex-1 gap-4 lg:gap-6 xl:gap-9 text-lg">
               {navbarItems.map((item) =>
                 item.path.startsWith("#") ? (
                   <a
@@ -103,7 +111,7 @@ const Navbar = (): React.ReactNode => {
                 )
               )}
             </div>
-            <div className="w-1/2 flex justify-end">
+            <div className="flex-shrink-0 flex justify-end">
               <GetStartedButton />
             </div>
           </div>
@@ -324,11 +332,11 @@ export default Navbar;
 const GetStartedButton = () => {
   return (
     <a
-      href="#products"
-      className="flex items-center justify-center w-full lg:w-36 py-2 rounded-full bg-brand-500 text-base font-semibold text-white"
+      href={`tel:${siteConfig.contact.phoneFormatted}`}
+      className="flex items-center justify-center gap-2 w-full lg:w-auto px-6 py-2 rounded-full border-2 border-brand-500 text-xl font-bold text-brand-500 hover:bg-brand-50 transition-colors"
     >
-      Get started
-      <ArrowDown className="h-4 w-4 ml-2" />
+      <Phone className="h-6 w-6" />
+      {siteConfig.contact.phone}
     </a>
   );
 };

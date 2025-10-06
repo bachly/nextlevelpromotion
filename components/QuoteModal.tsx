@@ -127,6 +127,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                         src={productImage}
                         alt={productName}
                         fill
+                        sizes="(max-width: 768px) 100vw, 66vw"
                         className="object-contain"
                       />
                     </div>
@@ -147,7 +148,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                       >
                         {[...Array(6)].map((_, i) => (
                           <div key={`col1-${i}`} className="relative w-full aspect-square rounded-lg overflow-hidden bg-white shadow-md flex-shrink-0">
-                            <Image src={featuredProducts[i % 3 * 3]} alt="Product" fill className="object-cover" />
+                            <Image
+                              src={featuredProducts[i % 3 * 3]}
+                              alt="Product"
+                              fill
+                              sizes="(max-width: 768px) 33vw, 22vw"
+                              className="object-cover"
+                            />
                           </div>
                         ))}
                       </motion.div>
@@ -164,7 +171,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                       >
                         {[...Array(6)].map((_, i) => (
                           <div key={`col2-${i}`} className="relative w-full aspect-square rounded-lg overflow-hidden bg-white shadow-md flex-shrink-0">
-                            <Image src={featuredProducts[1 + (i % 3) * 3]} alt="Product" fill className="object-cover" />
+                            <Image
+                              src={featuredProducts[1 + (i % 3) * 3]}
+                              alt="Product"
+                              fill
+                              sizes="(max-width: 768px) 33vw, 22vw"
+                              className="object-cover"
+                            />
                           </div>
                         ))}
                       </motion.div>
@@ -181,7 +194,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                       >
                         {[...Array(6)].map((_, i) => (
                           <div key={`col3-${i}`} className="relative w-full aspect-square rounded-lg overflow-hidden bg-white shadow-md flex-shrink-0">
-                            <Image src={featuredProducts[2 + (i % 3) * 3]} alt="Product" fill className="object-cover" />
+                            <Image
+                              src={featuredProducts[2 + (i % 3) * 3]}
+                              alt="Product"
+                              fill
+                              sizes="(max-width: 768px) 33vw, 22vw"
+                              className="object-cover"
+                            />
                           </div>
                         ))}
                       </motion.div>

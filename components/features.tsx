@@ -23,7 +23,7 @@ const Features = ({ className }: { className?: string }) => {
       </h1>
       <div className="py-1"></div>
       <p className="text-center w-72 md:w-[670px] md:text-xl lg:text-2xl text-xl px-1 font-bold">
-        At Next Level Promotion, we started with one simple idea: help local businesses grow by making them look professional. Whether it&apos;s a flyer for your first event or signage for your new storefront, we&apos;re here to make every print count.
+        At Next Level Promotions, we started with one simple idea: help local businesses grow by making them look professional. Whether it&apos;s a flyer for your first event or signage for your new storefront, we&apos;re here to make every print count.
       </p>
     </motion.div>
   );

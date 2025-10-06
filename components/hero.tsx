@@ -125,7 +125,13 @@ export const Hero = () => {
                   key={index}
                   className={`flex-shrink-0 ${product.size} bg-white rounded-t-xl relative overflow-hidden`}
                 >
-                  <Image src={product.src} alt={product.name} fill className="object-cover" />
+                  <Image
+                    src={product.src}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    className="object-cover"
+                  />
                 </div>
               );
             })}

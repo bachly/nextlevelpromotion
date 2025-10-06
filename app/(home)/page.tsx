@@ -15,7 +15,7 @@ export default function Home() {
           eyebrow="Who are we?"
           title="Premium, Personalised & Stress-Free"
           titleSecondary="Promotional Solutions"
-          subtitle="Next Level Promotion is a boutique print studio based in Sydney, specialising in high-quality, custom-branded materials for small businesses, events, and growing brands. Since 2017, our passionate team has been helping Aussie companies make memorable first impressions with professionally printed products that stand out and tell their story."
+          subtitle="Next Level Promotions is a boutique print studio based in Sydney, specialising in high-quality, custom-branded materials for small businesses, events, and growing brands. Since 2017, our passionate team has been helping Aussie companies make memorable first impressions with professionally printed products that stand out and tell their story."
         />
       </div>
 
