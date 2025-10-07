@@ -51,33 +51,22 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Log form data for debugging
-    console.log("Form data being submitted:");
-    for (const [key, value] of formData.entries()) {
-      console.log(`  ${key}: ${value}`);
-    }
-
     try {
-      const encodedData = new URLSearchParams(formData as unknown as Record<string, string>).toString();
-      console.log("Encoded form data:", encodedData);
-
-      // Submit to Netlify Forms
-      const response = await fetch("/", {
+      // Submit to Netlify Forms using the form's action (or default to current page)
+      const response = await fetch(form.action || window.location.pathname, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodedData,
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
 
       console.log("Form submission response:", response.status, response.statusText);
-      console.log("Response headers:", Object.fromEntries(response.headers.entries()));
 
-      // Accept both 200 and redirect responses as success
-      if (response.ok || response.status === 303 || response.status === 302) {
+      // Netlify returns 200 on success
+      if (response.ok) {
         setIsSubmitted(true);
       } else {
-        const responseText = await response.text();
-        console.error("Form submission failed:", response.status, response.statusText, responseText);
-        alert(`Error submitting form (${response.status}). Please try again.`);
+        console.error("Form submission failed:", response.status, response.statusText);
+        alert(`Error submitting form. Please try again.`);
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -240,6 +229,9 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   {/* Netlify Form */}
                   <form
                     name="product-quote-form"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                   >
                     <input type="hidden" name="form-name" value="product-quote-form" />
