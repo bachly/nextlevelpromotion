@@ -29,9 +29,9 @@ export async function POST(request: NextRequest) {
     const productImageHtml = data.productImage
       ? `
         <div style="margin: 20px 0;">
-          <img src="${siteUrl}${data.productImage}" alt="${data.product}" style="max-width: 400px; height: auto; border-radius: 8px;" />
+          <img src="${siteUrl}${encodeURI(data.productImage)}" alt="${data.product}" style="max-width: 400px; height: auto; border-radius: 8px;" />
         </div>
-        <p><strong>Product Image URL:</strong> <a href="${siteUrl}${data.productImage}">${siteUrl}${data.productImage}</a></p>
+        <p><strong>Product Image URL:</strong> <a href="${siteUrl}${encodeURI(data.productImage)}">${siteUrl}${data.productImage}</a></p>
       `
       : '';
 
