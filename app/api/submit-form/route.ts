@@ -16,6 +16,8 @@ export async function POST(request: NextRequest) {
       message: formData.get('message') as string,
     };
 
+    console.log('Form data received:', data);
+
     const subject = data.product
       ? `Quote request for ${data.product}`
       : 'General quote request from website';
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
                     'https://nextlevelpromotions.com.au';
 
     // Create product image HTML if available
-    const productImageHtml = data.productImage
+    const productImageHtml = data.productImage && data.productImage.trim()
       ? `
         <div style="margin: 20px 0;">
           <img src="${siteUrl}${encodeURI(data.productImage)}" alt="${data.product}" style="max-width: 400px; height: auto; border-radius: 8px;" />
