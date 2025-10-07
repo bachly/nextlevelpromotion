@@ -51,15 +51,25 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Log form data for debugging
+    console.log("Form data being submitted:");
+    for (const [key, value] of formData.entries()) {
+      console.log(`  ${key}: ${value}`);
+    }
+
     try {
+      const encodedData = new URLSearchParams(formData as unknown as Record<string, string>).toString();
+      console.log("Encoded form data:", encodedData);
+
       // Submit to Netlify Forms
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body: encodedData,
       });
 
       console.log("Form submission response:", response.status, response.statusText);
+      console.log("Response headers:", Object.fromEntries(response.headers.entries()));
 
       // Accept both 200 and redirect responses as success
       if (response.ok || response.status === 303 || response.status === 302) {
