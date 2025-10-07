@@ -45,25 +45,30 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     };
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Submit to Netlify Forms static HTML file
-    fetch("/__forms.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
-    })
-      .then(() => {
-        setIsSubmitted(true);
-      })
-      .catch((error) => {
-        alert("Error submitting form. Please try again.");
-        console.error(error);
+    try {
+      // Submit to Netlify Forms static HTML file
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error("Form submission failed:", response.status, response.statusText);
+        alert("Error submitting form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
 
   const handleClose = () => {
@@ -221,8 +226,6 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   {/* Netlify Form */}
                   <form
                     name="product-quote-form"
-                    method="POST"
-                    data-netlify="true"
                     onSubmit={handleSubmit}
                   >
                     <input type="hidden" name="form-name" value="product-quote-form" />
