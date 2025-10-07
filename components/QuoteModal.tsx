@@ -52,22 +52,26 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     const formData = new FormData(form);
 
     try {
-      // Submit to Netlify Forms static HTML file
-      const response = await fetch("/__forms.html", {
+      // Submit to Netlify Forms
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
 
-      if (response.ok) {
+      console.log("Form submission response:", response.status, response.statusText);
+
+      // Accept both 200 and redirect responses as success
+      if (response.ok || response.status === 303 || response.status === 302) {
         setIsSubmitted(true);
       } else {
-        console.error("Form submission failed:", response.status, response.statusText);
-        alert("Error submitting form. Please try again.");
+        const responseText = await response.text();
+        console.error("Form submission failed:", response.status, response.statusText, responseText);
+        alert(`Error submitting form (${response.status}). Please try again.`);
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("Error submitting form. Please try again.");
+      alert("Error submitting form. Please check your connection and try again.");
     }
   };
 
