@@ -227,6 +227,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   {/* Contact Form */}
                   <form onSubmit={handleSubmit}>
                     <input type="hidden" name="product" value={productName || "General Quote"} />
+                    <input type="hidden" name="productImage" value={productImage || ""} />
 
                     <div className="space-y-4">
                       <div>
