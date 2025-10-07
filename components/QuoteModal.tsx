@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { getProductDescription } from "@/lib/products";
+import { siteConfig } from "@/lib/site-config";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -52,21 +53,19 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     const formData = new FormData(form);
 
     try {
-      // Submit to Netlify Forms using the form's action (or default to current page)
-      const response = await fetch(form.action || window.location.pathname, {
+      const response = await fetch('/api/submit-form', {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body: formData,
       });
 
-      console.log("Form submission response:", response.status, response.statusText);
+      const result = await response.json();
+      console.log("Form submission result:", result);
 
-      // Netlify returns 200 on success
-      if (response.ok) {
+      if (response.ok && result.success) {
         setIsSubmitted(true);
       } else {
-        console.error("Form submission failed:", response.status, response.statusText);
-        alert(`Error submitting form. Please try again.`);
+        console.error("Form submission failed:", response.status, result);
+        alert(result.message || 'Error submitting form. Please try again.');
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -226,17 +225,9 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     {productName ? getProductDescription(productName) : "Have a question or ready to start your next project? Fill out the form below and our team will get back to you as soon as possible."}
                   </p>
 
-                  {/* Netlify Form */}
-                  <form
-                    name="product-quote-form"
-                    method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
-                  >
-                    <input type="hidden" name="form-name" value="product-quote-form" />
+                  {/* Contact Form */}
+                  <form onSubmit={handleSubmit}>
                     <input type="hidden" name="product" value={productName || "General Quote"} />
-                    <input type="hidden" name="subject" value={productName ? `Quote request for ${productName}` : "General quote request"} />
 
                     <div className="space-y-4">
                       <div>

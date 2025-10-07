@@ -25,7 +25,7 @@ const Footer = () => {
           </Link>
         )}
         <Link
-          href={`https://wa.me/${siteConfig.contact.phoneFormatted}`}
+          href={`https://wa.me/${siteConfig.contact.phoneFormatted.replace('+', '')}`}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-75 transition-opacity [&_svg]:fill-white [&_svg_path]:fill-white"

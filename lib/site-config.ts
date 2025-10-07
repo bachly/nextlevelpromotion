@@ -18,12 +18,14 @@ export const siteConfig = {
   themeColor: "#0d72ff",
   author: "Next Level Promotions",
   social: {
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || "",
+    instagram: "https://instagram.com/nextlevelpromotions",
   },
   contact: {
     email: "info@nextlevelpromotion.com.au",
     phone: "0420 567 794",
     phoneFormatted: "+61420567794", // For links (tel: and WhatsApp)
+  },
+  forms: {
+    submitEmail: process.env.NEXT_PUBLIC_FORM_EMAIL || "",
   }
 };
