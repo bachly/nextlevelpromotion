@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { getProductDescription } from "@/lib/products";
-import { siteConfig } from "@/lib/site-config";
 
 interface QuoteModalProps {
   isOpen: boolean;
