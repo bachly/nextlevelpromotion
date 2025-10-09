@@ -1,4 +1,4 @@
-# Playful Template
+# Next Level Promotion website
 
 A modern and playful template designed for SaaS and marketing websites, powered by Next.js and Aceternity UI. This template features smooth animations, responsive design, and a comprehensive set of components.
 
